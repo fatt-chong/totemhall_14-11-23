@@ -37,6 +37,53 @@
         $ventanillaModel = new Ventanillas();
         $turnoModel = new Turnos();
         $responseVentanillasDisponibles = $ventanillaModel->listarVentanillaAbiertasHoy();
+
+       // print_r("<pre>");print_r($responseVentanillasDisponibles["datos"]);print_r("</pre>");
+        $tuArray = $responseVentanillasDisponibles["datos"];
+        // La abreviatura que estás buscando
+        $abreviaturaBuscada = "GINLAB";
+
+        // Función para filtrar los registros
+        function filtroPorAbreviatura($registro) {
+            global $abreviaturaBuscada;
+            return $registro['modulos_nombreAbreviacion'] == $abreviaturaBuscada;
+        }
+
+        // Utiliza array_filter para filtrar el array
+        $registrosFiltrados = array_filter($tuArray, 'filtroPorAbreviatura');
+
+        // Toma el primer elemento del array filtrado
+        $primerRegistroGINLAB = reset($registrosFiltrados);
+
+        $ventanillaGinLabAbierta = "No";
+        // Verifica si se encontró un registro
+        if($primerRegistroGINLAB !== false){
+            // Imprime el primer registro encontrado
+            //print_r($primerRegistroGINLAB);
+            $ventanillaGinLabAbierta = "Si";
+        }else{
+            //echo "No se encontraron registros con la abreviatura '$abreviaturaBuscada'.";
+            $ventanillaGinLabAbierta = "No";
+        }
+
+        //OIRS
+        $abreviaturaBuscada = "OIRS";
+        // Utiliza array_filter para filtrar el array
+        $registrosFiltrados = array_filter($tuArray, 'filtroPorAbreviatura');
+
+        // Toma el primer elemento del array filtrado
+        $primerRegistroOIRS = reset($registrosFiltrados);
+
+        $ventanillaOirAbierta = "No";
+        // Verifica si se encontró un registro
+        if($primerRegistroOIRS !== false){
+            // Imprime el primer registro encontrado
+            //print_r($primerRegistroOIRS);
+            $ventanillaOirAbierta = "Si";
+        }else{
+            //echo "No se encontraron registros con la abreviatura '$abreviaturaBuscada'.";
+            $ventanillaOirAbierta = "No";
+        }
         require("./src/controllers/MonitorControllers.php");
     ?>
 
@@ -343,12 +390,16 @@
                             <div class="col-12 mt-1 p-3 bg-info" style="background-color:yellow; width:625px;">
                                 <h1>ULTIMOS TURNOS</h1>
                             </div>
-                            <div class="col-12 mt-1 p-3 bg-info" style="background-color:#CFE2FF !important; width:625px;">
-                                <h1 style="color: #212529 !important;"><?=$turnoGinLab?></h1>
+                        <?php if($ventanillaGinLabAbierta == "Si"){?>
+                            <div class="col-12 mt-1 p-3 bg-info" style="background-color:#CFE2FF !important; width:625px;" id="contenedorUltimoGinLab">
+                                <h1 style="color: #212529 !important;" id="ultimoTurnoGinLab"><?=$turnoGinLab?></h1>
                             </div>
-                            <div class="col-12 mt-1 p-3 bg-info" style="background-color:#CFE2FF !important; width:625px;">
-                                <h1 style="color: #212529 !important;"><?=$turnoOirs?></h1>
+                        <?php } ?>
+                        <?php if($ventanillaOirAbierta == "Si"){?>
+                            <div class="col-12 mt-1 p-3 bg-info" style="background-color:#CFE2FF !important; width:625px;" id="contenedorUltimoOirs">
+                                <h1 style="color: #212529 !important;" id="ultimoTurnoOirs"><?=$turnoOirs?></h1>
                             </div>
+                        <? } ?>
 
         </div>
         

@@ -96,5 +96,33 @@ var socket = io("10.6.21.29:3001");
                 });
             });
 
+            //14-11-23
+            socket.on("numero-total-por-sala-cliente", (data) => {
+                console.log("en: numero-total-por-sala-cliente");
+                console.log(data);
+
+                var cadena = data?.numeroTurno;
+                var GINLAB = "GINLAB";
+
+                if(cadena.includes(GINLAB)) {
+                    console.log("La cadena contiene la palabra GINLAB");
+                    let ultimoTurnoGinLab = document.getElementById("ultimoTurnoGinLab");
+                    ultimoTurnoGinLab.textContent = data?.numeroTurno;
+                }else{
+                    console.log("La cadena NO contiene la palabra GINLAB");
+                }
+
+                var OIRS = "OIRS";
+
+                if(cadena.includes(OIRS)) {
+                    console.log("La cadena contiene la palabra OIRS");
+                    let ultimoTurnoOirs = document.getElementById("ultimoTurnoOirs");
+                    ultimoTurnoOirs.textContent = data?.numeroTurno;
+                }else{
+                    console.log("La cadena NO contiene la palabra OIRS");
+                }
+            });
+            //14-11-23
+
 
             
