@@ -388,16 +388,16 @@
                             }
                         ?>
                             <div class="col-12 mt-1 p-3 bg-info" style="background-color:yellow; width:625px;">
-                                <h1>ULTIMOS TURNOS</h1>
+                                <h1 class="text-center">ULTIMOS TURNOS</h1>
                             </div>
                         <?php if($ventanillaGinLabAbierta == "Si"){?>
                             <div class="col-12 mt-1 p-3 bg-info" style="background-color:#CFE2FF !important; width:625px;" id="contenedorUltimoGinLab">
-                                <h1 style="color: #212529 !important;" id="ultimoTurnoGinLab"><?=$turnoGinLab?></h1>
+                                <h1 class="text-center" style="color: #212529 !important;" id="ultimoTurnoGinLab"><?=$turnoGinLab?></h1>
                             </div>
                         <?php } ?>
                         <?php if($ventanillaOirAbierta == "Si"){?>
                             <div class="col-12 mt-1 p-3 bg-info" style="background-color:#CFE2FF !important; width:625px;" id="contenedorUltimoOirs">
-                                <h1 style="color: #212529 !important;" id="ultimoTurnoOirs"><?=$turnoOirs?></h1>
+                                <h1 class="text-center" style="color: #212529 !important;" id="ultimoTurnoOirs"><?=$turnoOirs?></h1>
                             </div>
                         <? } ?>
 
