@@ -1,0 +1,61 @@
+.bg-info{
+    background-color:#1A4075 !important;
+    color: white !important;
+}
+
+.contenedorLogo {
+    background-color: #1A4075 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Hace que el contenedor ocupe toda la altura de la ventana */
+}
+
+/* Aplica la animación al div con la clase "parpadeo" */
+@keyframes parpadeo {
+    0%, 100% {
+    background-color: #FFFBA6; /* Amarillo claro */
+  }
+  50% {
+    background-color: #FED93E; /* Amarillo más brillante */
+  }
+}
+
+.parpadeo {
+  animation: parpadeo 1s infinite;
+  
+}
+
+#hora {
+  font-size: 80px;
+}
+
+.bg-info{
+  background-color:#1A4075 !important;
+  color: white !important;
+}
+
+.contenedorLogo {
+  background-color: #1A4075 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Hace que el contenedor ocupe toda la altura de la ventana */
+}
+
+/* Aplica la animación al div con la clase "parpadeo" */
+@keyframes parpadeo {
+  0%, 100% {
+  background-color: #FFFBA6; /* Amarillo claro */
+}
+50% {
+  background-color: #FED93E; /* Amarillo más brillante */
+}
+}
+
+.parpadeo {
+animation: parpadeo 1s infinite;
+
+}
